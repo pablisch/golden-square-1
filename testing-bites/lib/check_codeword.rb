@@ -6,4 +6,4 @@ def check_codeword(codeword)
   else 
     "WRONG!"
   end
-end 
+end
