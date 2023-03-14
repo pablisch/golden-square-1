@@ -17,5 +17,19 @@ RSpec.describe "check_codeword method" do
     it "returns 'wrong' message when passed 'fools'" do
       expect(check_codeword("fools")).to eq "WRONG!"
     end
+  
+    it "returns 'wrong' message when passed 'human'" do
+      expect(check_codeword("human")).to eq "WRONG!"
+    end
+
+    it "returns 'wrong' message when passed 'phone'" do
+      expect(check_codeword("phone")).to eq "WRONG!"
+    end 
+  end
+  
+  context "blank string entered" do
+    it "returns 'WRONG!' message when passed blank string" do
+      expect(check_codeword("")).to eq "WRONG!"
+    end
   end
 end
