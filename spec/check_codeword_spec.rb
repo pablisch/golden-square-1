@@ -15,3 +15,9 @@ RSpec.describe "check_codeword method" do
 
   
 end
+
+RSpec.shared_examples 'a fizzbuzz number' do |number, expected_output|
+  it "returns #{expected_output.inspect} when passed #{number}" do
+    expect(fizzbuzz(number)).to eq expected_output
+  end
+end
