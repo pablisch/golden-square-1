@@ -9,5 +9,7 @@ def check_grammar(text)
     "Does not end with suitable punctuation."
   elsif ending == "yes"
     "Has no starting capital letter."
-  end  
+  else
+    "Does not start with a capital letter nor end with suitable punction."
+  end 
 end

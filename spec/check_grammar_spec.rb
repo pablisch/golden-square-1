@@ -1,6 +1,9 @@
 require "check_grammar"
 
 RSpec.describe "check_grammar method" do
+
+  compliant = "Starts with a captial letter and ends with suitable puctuation."
+  
   context "text has correct structure" do
     it "returns compliance message" do
       expect(check_grammar("Hello world!")).to eq "Starts with a captial letter and ends with suitable puctuation."
@@ -46,6 +49,20 @@ RSpec.describe "check_grammar method" do
 
     it "returns no suitable end punctuation message when ending in whitespace" do
       expect(check_grammar("Hello world ")).to eq "Does not end with suitable punctuation."
+    end
+  end
+
+  context "text is missing begnning capital AND suitable end punctuation" do
+    it "returns both case errors message when starting in lowercase AND ending in letter" do
+      expect(check_grammar("hello world")).to eq "Does not start with a capital letter nor end with suitable punction."
+    end
+
+    it "returns both case errors message when starting in lowercase AND when ending in wrong punctuation" do
+      expect(check_grammar("hello world,")).to eq "Does not start with a capital letter nor end with suitable punction."
+    end
+
+    it "returns both case errors message when starting with whitespace AND when ending in wrong punctuation" do
+      expect(check_grammar(" Hello world-")).to eq "Does not start with a capital letter nor end with suitable punction."
     end
   end
 end

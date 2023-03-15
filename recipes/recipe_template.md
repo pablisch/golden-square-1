@@ -30,11 +30,11 @@ check_grammar("!") => "There is no text to check."
 <!-- check_grammar("hello world!") => "has no starting capital letter." -->
 <!-- check_grammar("Hello world") => "Does not end with suitable punctuation." -->
 
-check_grammar("hello world") => "Does not start with a capital letter nor end with suitable punction."
+<!-- check_grammar("hello world") => "Does not start with a capital letter nor end with suitable punction." -->
 
 <!-- check_grammar("-hello world-") => "Does not start with a capital letter nor end with suitable punction." -->
 
-check_grammar(" hello world-") => "Does not start with a capital letter nor end with suitable punction."
+<!-- check_grammar(" hello world-") => "Does not start with a capital letter nor end with suitable punction." -->
 
 # EXAMPLE
 
