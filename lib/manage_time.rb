@@ -1,3 +1,3 @@
 def estimated_time(words)
-  words.length / 1100.0
+  words.split(/[\/\s-]/).length / 200.0
 end
