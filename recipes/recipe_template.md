@@ -22,13 +22,18 @@ return true if both are true, return false if wither are false.
 3. Create Examples as Tests
    Make a list of examples of what the method will take and return.
 
-check_grammar("Hello world!") => "Starts with a captial letter and ends with suitable puctuation."
-check_grammar("") => "There is no text to check."
+<!-- check_grammar("Hello world!") => "Starts with a captial letter and ends with suitable puctuation." -->
+<!-- check_grammar("") => "There is no text to check." -->
+
 check_grammar("!") => "There is no text to check."
-check_grammar("hello world!") => "has no starting capital letter."
-check_grammar("Hello world") => "Does not end with suitable punctuation."
+
+<!-- check_grammar("hello world!") => "has no starting capital letter." -->
+<!-- check_grammar("Hello world") => "Does not end with suitable punctuation." -->
+
 check_grammar("hello world") => "Does not start with a capital letter nor end with suitable punction."
-check_grammar("-hello world-") => "Does not start with a capital letter nor end with suitable punction."
+
+<!-- check_grammar("-hello world-") => "Does not start with a capital letter nor end with suitable punction." -->
+
 check_grammar(" hello world-") => "Does not start with a capital letter nor end with suitable punction."
 
 # EXAMPLE
