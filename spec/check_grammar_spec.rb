@@ -40,5 +40,12 @@ RSpec.describe "check_grammar method" do
       expect(check_grammar("Hello world")).to eq "Does not end with suitable punctuation."
     end
 
+    it "returns no suitable end punctuation message when ending in wrong punctuation" do
+      expect(check_grammar("Hello world,")).to eq "Does not end with suitable punctuation."
+    end
+
+    it "returns no suitable end punctuation message when ending in whitespace" do
+      expect(check_grammar("Hello world ")).to eq "Does not end with suitable punctuation."
+    end
   end
 end
