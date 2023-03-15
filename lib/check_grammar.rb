@@ -1,5 +1,5 @@
 def check_grammar(text)
-  return "There is no text to check." if text.length == 0
+  return "There is no text to check." if text !~ /[A-Za-z]/
   capital = text[0] !~ /[A-Z]/ ? "no" : "yes"
   ending = text[-1] !~ /[^\.!?]/ ? "yes" : "no" 
 
