@@ -25,5 +25,20 @@ RSpec.describe "check_grammar method" do
     it "returns no capital message when starting with whitespace" do
       expect(check_grammar(" hello world!")).to eq "Has no starting capital letter."
     end
+
+    it "returns no capital message when starting with symbol" do
+      expect(check_grammar("@hello world!")).to eq "Has no starting capital letter."
+    end
+
+    it "returns no capital message when starting with punctuation" do
+      expect(check_grammar("!hello world!")).to eq "Has no starting capital letter."
+    end
+  end
+
+  context "text is missing suitable end punctuation" do
+    it "returns no suitable end punctuation message when ending in letter" do
+      expect(check_grammar("Hello world")).to eq "Does not end with suitable punctuation."
+    end
+
   end
 end
