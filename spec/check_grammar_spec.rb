@@ -18,8 +18,12 @@ RSpec.describe "check_grammar method" do
   end
 
   context "Does not start with capital letter" do
-    it "returns no capital message" do
+    it "returns no capital message when starting with lowercase" do
       expect(check_grammar("hello world!")).to eq "Has no starting capital letter."
+    end
+
+    it "returns no capital message when starting with whitespace" do
+      expect(check_grammar(" hello world!")).to eq "Has no starting capital letter."
     end
   end
 end
