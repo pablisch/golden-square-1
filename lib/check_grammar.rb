@@ -1,4 +1,6 @@
 def check_grammar(text)
-  return "Starts with a captial letter and ends with suitable puctuation." if text == "Hello world!"
-  "There is no text to check."
+  return "There is no text to check." if text.length == 0
+
+  return "Starts with a captial letter and ends with suitable puctuation." 
+  
 end

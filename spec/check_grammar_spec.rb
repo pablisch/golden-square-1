@@ -5,6 +5,10 @@ RSpec.describe "check_grammar method" do
     it "returns compliance message" do
       expect(check_grammar("Hello world!")).to eq "Starts with a captial letter and ends with suitable puctuation."
     end
+
+    it "returns compliance message" do
+      expect(check_grammar("World hello?")).to eq "Starts with a captial letter and ends with suitable puctuation."
+    end
   end
 
   context "no text input" do
