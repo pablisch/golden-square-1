@@ -15,8 +15,12 @@ RSpec.describe "manage_time method" do
       expect(estimated_time("Follow the design recipe to implement the following user stories in your project. User stories follow a specific format don't worry about that too much now, you'll get the hang of it.")).to eq 0.16
     end
 
-    it "returns an estimated time for one scentence" do
+    it "returns an estimated time for one scentence with hyphen" do
       expect(estimated_time("Follow the design recipe to implement the following user stories in your project. User stories follow a - specific format don't worry about that too much now, you'll get the hang of it.")).to eq 0.16
+    end
+
+    it "returns an estimated time for one scentence with hyphen, elipses and forward slash" do
+      expect(estimated_time("and/or and-or... mother-in-law  ... - ")).to eq 0.02
     end
 
   end

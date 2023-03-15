@@ -1,3 +1,5 @@
 def estimated_time(words)
-  words.split(/[\/\s-]/).length / 200.0
+  words = words.delete("-")
+  words_array = words.split(/[\/\s\.]/)
+  words_array.reject { |word| word == "" }.length / 200.0
 end
