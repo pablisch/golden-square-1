@@ -30,7 +30,7 @@ track_tasks("#TO DO") => false
 track_tasks("#TOD") => false
 track_tasks("ODOT#") => false
 track_tasks("#TODO#TODO") => true
-track_tasks("") => fail return "No text given."
+# track_tasks("") => fail return "No text given."
 
 ```
 
