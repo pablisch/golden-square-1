@@ -23,13 +23,13 @@ track_tasks(text)
    Make a list of examples of what the method will take and return.
 
 ```ruby
-track_tasks("#TODO") => true
-track_tasks("Hello #TODO Goodbye!") => true
-track_tasks("#TODOOBIE") => true
-track_tasks("#TO DO") => false
-track_tasks("#TOD") => false
-track_tasks("ODOT#") => false
-track_tasks("#TODO#TODO") => true
+# track_tasks("#TODO") => true
+# track_tasks("Hello #TODO Goodbye!") => true
+# track_tasks("#TODOOBIE") => true
+# track_tasks("#TO DO") => false
+# track_tasks("#TOD") => false
+# track_tasks("ODOT#") => false
+# track_tasks("#TODO#TODO") => true
 # track_tasks("") => fail return "No text given."
 
 ```
