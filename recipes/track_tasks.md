@@ -27,6 +27,12 @@ uppercase_words: a list of strings (e.g. ["WORLD"])
 3. Create Examples as Tests
    Make a list of examples of what the method will take and return.
 
+```ruby
+
+
+
+```
+
 # EXAMPLE
 
 extract_uppercase("hello WORLD") => ["WORLD"]
