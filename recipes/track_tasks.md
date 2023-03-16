@@ -7,6 +7,12 @@ Copy this into a recipe.md in your project and fill it out.
 2. Design the Method Signature
    Include the name of the method, its parameters, return value, and side effects.
 
+```ruby
+
+
+
+```
+
 # EXAMPLE
 
 # `extract_upper` extracts uppercase words from a string
