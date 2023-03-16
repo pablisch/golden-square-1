@@ -4,23 +4,18 @@ Copy this into a recipe.md in your project and fill it out.
 1. Describe the Problem
    Put or write the user story here. Add any clarifying notes you might have.
 
+As a user
+So that I can keep track of my tasks
+I want to check if a text includes the string #TODO.
+
 2. Design the Method Signature
    Include the name of the method, its parameters, return value, and side effects.
 
 ```ruby
-
-
+# method will track_tasks looking for "#TODO" and return a Boolean value.
+track_tasks(text)
 
 ```
-
-# EXAMPLE
-
-# `extract_upper` extracts uppercase words from a string
-
-uppercase_words = extract_uppercase(mixed_words)
-
-mixed_words: a string (e.g. "hello WORLD")
-uppercase_words: a list of strings (e.g. ["WORLD"])
 
 # The method doesn't print anything or have any other side-effects
 
@@ -28,8 +23,14 @@ uppercase_words: a list of strings (e.g. ["WORLD"])
    Make a list of examples of what the method will take and return.
 
 ```ruby
-
-
+track_tasks("#TODO") => true
+track_tasks("Hello #TODO Goodbye!") => true
+track_tasks("#TODOOBIE") => true
+track_tasks("#TO DO") => false
+track_tasks("#TOD") => false
+track_tasks("ODOT#") => false
+track_tasks("#TODO#TODO") => true
+track_tasks("") => fail return "No text given."
 
 ```
 
