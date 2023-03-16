@@ -1,24 +1,24 @@
 def encode(plaintext, key)
   cipher = key.chars.uniq + (('a'...'z').to_a - key.chars)
-  p cipher
+  puts "cipher = #{cipher}"
   ciphertext_chars = plaintext.chars.map do |char|
-    p 65 + cipher.find_index(char)
-    (65 + cipher.find_index(char))#.chr
+    (65 + cipher.find_index(char)).chr
   end
+  puts "ciphertext_chars = #{ciphertext_chars}"
   return ciphertext_chars.join
 end
 
-def decode(ciphertext, key)
-  cipher = key.chars.uniq + (('a'...'z').to_a - key.chars)
-  plaintext_chars = ciphertext.chars.map do |char|
-    cipher[65 - char.ord]
-  end
-  return plaintext_chars.join
-end
+# def decode(ciphertext, key)
+#   cipher = key.chars.uniq + (('a'...'z').to_a - key.chars)
+#   plaintext_chars = ciphertext.chars.map do |char|
+#     cipher[65 - char.ord]
+#   end
+#   return plaintext_chars.join
+# end
 
 p encode("theswiftfoxjumpedoverthelazydog", "secretkey")
 puts
-p decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
+# p decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
 
 # Intended output:
 #
