@@ -1,5 +1,5 @@
 class DiaryEntry
-  def initialize(title, contents) # title, contents are strings
+  def initialize(title, contents)
     fail "You provided an empty title." if title == ""
     fail "You provided an empty contents." if contents == ""
     @title = title
