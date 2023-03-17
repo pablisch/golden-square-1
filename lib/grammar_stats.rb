@@ -1,15 +1,24 @@
 class GrammarStats
   def initialize
-    # ...
+    @checks = 0
+    @passes = 0.0
   end
 
-  def check(text) # text is a string
-    # Returns true or false depending on whether the text begins with a capital
-    # letter and ends with a sentence-ending punctuation mark.
+  def check(text) 
+    fail "No text to check." if text.empty?
+    @checks += 1
+    if text.match? /[\.!?]$/ and text.match? /^[A-Z]/
+      @passes += 1
+      true
+    else
+      false
+    end
   end
 
   def percentage_good
-    # Returns as an integer the percentage of texts checked so far that passed
-    # the check defined in the `check` method. The number 55 represents 55%.
+    puts "#{@passes} passes and #{@checks} checks."
+    fail "No tests have been carried out yet." if @checks == 0
+    return 0 if @passes == 0
+    ((@passes / @checks) * 100).to_i
   end
 end
