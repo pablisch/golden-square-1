@@ -9,6 +9,11 @@ RSpec.describe DiaryEntry do
     expect { DiaryEntry.new("Monday", "") }.to raise_error "You provided an empty contents."
   end
 
+  it "fails if passed 0 or less as wpm" do
+    entry = DiaryEntry.new("Monday", "Some text.")
+    expect { entry.reading_time(0) }.to raise_error "wpm must be a positive number."
+  end
+
   context "it initialises with a given title and returns it" do
     it "creates a diary entry and returns the title (Tuesday)" do
       entry = DiaryEntry.new("Tuesday", "Got confused by TDD")
@@ -76,6 +81,66 @@ RSpec.describe DiaryEntry do
     it "returns 200 for a two hundred word contents" do
       entry = DiaryEntry.new("Tuesday", ("word " * 200))
       expect(entry.count_words).to eq 200
+    end
+  end
+
+  context "return estimated reading time" do
+    it "returns 1 for under 1 word and 200 wpm" do
+      entry = DiaryEntry.new("Thursday", "Hello")
+      expect(entry.reading_time(200)).to eq 1
+    end
+
+    it "returns 3 for 300 words and 100 wpm" do
+      entry = DiaryEntry.new("Thursday", ("word " * 300))
+      expect(entry.reading_time(100)).to eq 3
+    end
+
+    it "returns 10 for 2000 words and 200 wpm" do
+      entry = DiaryEntry.new("Thursday", ("word " * 2000))
+      expect(entry.reading_time(200)).to eq 10
+    end
+  end
+
+  context "return text based on wpm and available time for the first call" do
+    it "returns text where wpm = 10 and min = 1" do
+      entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix " * 50))
+      expect(entry.reading_chunk(10, 1)).to eq "one two three four five six seven eight nine ten"
+    end
+
+    it "returns text where wpm = 5 and min = 4" do
+      entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix " * 50))
+      expect(entry.reading_chunk(5, 4)).to eq "one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix"
+    end
+
+    it "returns text where wpm = 3 and min = 8 but the contents is shorter" do
+      entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix " * 1))
+      expect(entry.reading_chunk(3, 8)).to eq "one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix"
+    end
+  end
+
+  context "return text based on wpm and available time after all content is read once over" do
+    it "returns text where wpm = 15 and min = 1" do
+      entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix " * 1))
+      entry.reading_chunk(15, 1)
+      entry.reading_chunk(15, 1)
+      expect(entry.reading_chunk(15, 1)).to eq "one two three four five six seven eight nine ten un deux trois quatre cinq"
+    end
+
+    it "returns text on third chunk where wpm = 6 and min = 1" do
+      entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix " * 1))
+      entry.reading_chunk(6, 1)
+      entry.reading_chunk(6, 1)
+      entry.reading_chunk(6, 1)
+      entry.reading_chunk(6, 1)
+      expect(entry.reading_chunk(6, 1)).to eq "one two three four five six"
+    end
+
+    it "returns text on third chunk where wpm = 9 and min = 1" do
+      entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix " * 1))
+      entry.reading_chunk(9, 1)
+      entry.reading_chunk(9, 1)
+      entry.reading_chunk(9, 1)
+      expect(entry.reading_chunk(9, 1)).to eq "one two three four five six seven eight nine"
     end
   end
 

@@ -4,6 +4,7 @@ class DiaryEntry
     fail "You provided an empty contents." if contents == ""
     @title = title
     @contents = contents
+    @chunk = 0
   end
 
   def title
@@ -18,20 +19,28 @@ class DiaryEntry
     @contents.split.length
   end
 
-  def reading_time(wpm) # wpm is an integer representing the number of words the
-                        # user can read per minute
-    # Returns an integer representing an estimate of the reading time in minutes
-    # for the contents at the given wpm.
+  def reading_time(wpm) 
+  fail "wpm must be a positive number." if wpm == 0
+  (@contents.split.length / wpm.to_f).ceil
   end
 
-  def reading_chunk(wpm, minutes) # `wpm` is an integer representing the number
-                                  # of words the user can read per minute
-                                  # `minutes` is an integer representing the
-                                  # number of minutes the user has to read
-    # Returns a string with a chunk of the contents that the user could read
-    # in the given number of minutes.
-    # If called again, `reading_chunk` should return the next chunk, skipping
-    # what has already been read, until the contents is fully read.
-    # The next call after that it should restart from the beginning.
+  def reading_chunk(wpm, minutes) 
+    contents_array = @contents.split
+    number_of_words = wpm * minutes
+    @chunk = 0 if contents_array.length <= @chunk * number_of_words
+    @chunk.times { contents_array.shift(number_of_words) }
+    @chunk += 1
+    contents_array.shift(number_of_words).join(" ")
   end
 end
+
+# entry = DiaryEntry.new("Tuesday", ("one two three four five six seven eight nine ten un deux trois quatre cinq six sept huit neuf dix " * 1))
+# # p entry.contents
+# p entry.reading_chunk(8, 1)
+# puts
+# p entry.reading_chunk(8, 1)
+# puts
+# p entry.reading_chunk(8, 1)
+# puts
+# p entry.reading_chunk(8, 1)
+# puts
