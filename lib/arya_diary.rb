@@ -24,23 +24,22 @@ class DiaryEntry
   end
 
   # Matt and Maddy's code
-  def reading_chunk(wpm, minutes)
-    string_to_return = @contents_array[@counter...@counter+(wpm * minutes)].join(" ")
-    if @counter + (wpm * minutes) >= @contents_array.length
-      @counter = 0
-    else
-      @counter += (wpm * minutes)
-    end
-    return string_to_return
-  end
+  # def reading_chunk(wpm, minutes)
+  #   string_to_return = @contents_array[@counter...@counter+(wpm * minutes)].join(" ")
+  #   if @counter + (wpm * minutes) >= @contents_array.length
+  #     @counter = 0
+  #   else
+  #     @counter += (wpm * minutes)
+  #   end
+  #   return string_to_return
+  # end
 
   # Code based on working with Arya
-  # def reading_chunk(wpm, minutes) 
-  #   num_of_words = wpm * minutes
-  #   chunk = @array_of_words.shift(num_of_words)
-  #   @array_of_words = @contents.split if @array_of_words.empty?
-  #   chunk.join(" ") 
-  # end
+  def reading_chunk(wpm, minutes) 
+    chunk = @array_of_words.shift(wpm * minutes)
+    @array_of_words = @contents.split if @array_of_words.empty?
+    chunk.join(" ") 
+  end
     
     # `wpm` is an integer representing the number
                                   # of words the user can read per minute
