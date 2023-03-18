@@ -93,8 +93,7 @@ list.view_list # => fails with "That task is not on your list of todos."
 # delete from list and output confirmation when completed_todo has match"
 list = TodoList
 list.add("take a break")
-list.mark_completed("take a break")
-list.view_list # => "'Take a break' has been completed and removed from your list of todos."
+list.mark_completed("take a break") # => "'Take a break' has been completed and removed from your list of todos."
 
 # return list when items added, marked as complete and then list viewed
 list = TodoList.new
