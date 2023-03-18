@@ -51,41 +51,41 @@ end
 
 ```ruby
 # fail when there are no items to view
-list = TodoList
+list = TodoList.new
 list.view_list # => fails with "No todo given."
 
 # return confirmation when an item is added (result of puts)
-list = TodoList
+list = TodoList.new
 list.todo("take a break") # => "'Take a break' has been added to your todo list."
 
 # return list with todo item/s
-list = TodoList
+list = TodoList.new
 list.todo("take a break")
 list.view_list # => "* Take a break"
 
-list = TodoList
+list = TodoList.new
 list.todo("take a break")
 list.todo("get more sleep")
 list.view_list # => "* Take a break \n * Get more sleep"
 
 # fail when todo item already exists
-list = TodoList
+list = TodoList.new
 list.todo("take a break")
 list.todo("take a break") # => fails with "That todo is already on your list. Nothing was added."
 
 # fail when trying to complete todo but list is empty
-list = TodoList
+list = TodoList.new
 list.mark_completed("take a break")
 list.view_list # => fails with "All todos are already completed."
 
 # fail when trying to complete todo but passing an empty string
-list = TodoList
+list = TodoList.new
 list.todo("get more sleep")
 list.mark_completed("")
 list.view_list # => fails with "No todo was entered as completed."
 
 # fail when trying to complete todo but there is no match
-list = TodoList
+list = TodoList.new
 list.todo("get more sleep")
 list.mark_completed("take a break")
 list.view_list # => fails with "That task is not on your list of todos."
@@ -97,14 +97,14 @@ list.mark_completed("take a break")
 list.view_list # => "'Take a break' has been completed and removed from your list of todos."
 
 # return list when items added, marked as complete and then list viewed
-list = TodoList
+list = TodoList.new
 list.todo("take a break")
 list.todo("get more sleep")
 list.todo("go for a walk")
 list.mark_completed("go for a walk")
 list.view_list # => "* Take a break \n * Get more sleep"
 
-list = TodoList
+list = TodoList.new
 list.todo("take a break")
 list.todo("get more sleep")
 list.todo("go for a walk")
