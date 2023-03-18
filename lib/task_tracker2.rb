@@ -16,7 +16,9 @@ class TodoList
   end
 
   def mark_completed(completed_todo)
-    fail "There are no todos on your list."
+    fail "There are no todos on your list." if @todo_list.empty?
+    fail "No todo was entered as completed." if completed_todo.empty?
+    fail "That task is not on your list of todos."
   end
 end
 

@@ -50,5 +50,17 @@ RSpec.describe TodoList do
       list = TodoList.new
       expect { list.mark_completed("take a break") }.to raise_error "There are no todos on your list."
     end
+
+    it "fail when trying to complete todo but passing an empty string" do
+      list = TodoList.new
+      list.add("get more sleep")
+      expect { list.mark_completed("") }.to raise_error "No todo was entered as completed."
+    end
+
+    it "fail when trying to complete todo but there is no match" do
+      list = TodoList.new
+      list.add("get more sleep")
+      expect { list.mark_completed("take a break") }.to raise_error "That task is not on your list of todos."
+    end
   end
 end
