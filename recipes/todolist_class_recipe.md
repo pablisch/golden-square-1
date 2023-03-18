@@ -56,7 +56,7 @@ list.view_list # => fails with "No todo given."
 
 # return confirmation when an item is added (result of puts)
 list = TodoList.new
-list.todo("take a break") # => "'Take a break' has been added to your todo list."
+list.add("take a break") # => "'Take a break' has been added to your todo list."
 
 # return list with todo item/s
 list = TodoList.new
@@ -64,14 +64,14 @@ list.todo("take a break")
 list.view_list # => "* Take a break"
 
 list = TodoList.new
-list.todo("take a break")
-list.todo("get more sleep")
+list.add("take a break")
+list.add("get more sleep")
 list.view_list # => "* Take a break \n * Get more sleep"
 
 # fail when todo item already exists
 list = TodoList.new
-list.todo("take a break")
-list.todo("take a break") # => fails with "That todo is already on your list. Nothing was added."
+list.add("take a break")
+list.add("take a break") # => fails with "That todo is already on your list. Nothing was added."
 
 # fail when trying to complete todo but list is empty
 list = TodoList.new
@@ -80,36 +80,36 @@ list.view_list # => fails with "All todos are already completed."
 
 # fail when trying to complete todo but passing an empty string
 list = TodoList.new
-list.todo("get more sleep")
+list.add("get more sleep")
 list.mark_completed("")
 list.view_list # => fails with "No todo was entered as completed."
 
 # fail when trying to complete todo but there is no match
 list = TodoList.new
-list.todo("get more sleep")
+list.add("get more sleep")
 list.mark_completed("take a break")
 list.view_list # => fails with "That task is not on your list of todos."
 
 # delete from list and output confirmation when completed_todo has match"
 list = TodoList
-list.todo("take a break")
+list.add("take a break")
 list.mark_completed("take a break")
 list.view_list # => "'Take a break' has been completed and removed from your list of todos."
 
 # return list when items added, marked as complete and then list viewed
 list = TodoList.new
-list.todo("take a break")
-list.todo("get more sleep")
-list.todo("go for a walk")
+list.add("take a break")
+list.add("get more sleep")
+list.add("go for a walk")
 list.mark_completed("go for a walk")
 list.view_list # => "* Take a break \n * Get more sleep"
 
 list = TodoList.new
-list.todo("take a break")
-list.todo("get more sleep")
-list.todo("go for a walk")
-list.todo("sit in the sun")
-list.todo("talk to a friend")
+list.add("take a break")
+list.add("get more sleep")
+list.add("go for a walk")
+list.add("sit in the sun")
+list.add("talk to a friend")
 list.mark_completed("go for a walk")
 list.mark_completed("take a break")
 list.view_list # => "* Get more sleep \n Sit in the sun \n Talk to a friend"
