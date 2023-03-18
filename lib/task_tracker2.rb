@@ -16,9 +16,12 @@ class TodoList
   end
 
   def mark_completed(completed_todo)
+    completed_todo = completed_todo.capitalize
+    # puts @todo_list
     fail "There are no todos on your list." if @todo_list.empty?
     fail "No todo was entered as completed." if completed_todo.empty?
-    fail "That task is not on your list of todos."
+    fail "That task is not on your list of todos." unless @todo_list.include?(completed_todo)
+    puts "'Take a break' has been completed and removed from your list of todos."
   end
 end
 
@@ -27,4 +30,5 @@ list = TodoList.new
 list.add("take a break")
 # list.add("take a break")
 # list.add("get some sleep")
-list.view_list
+# list.view_list
+list.mark_completed("take a break")

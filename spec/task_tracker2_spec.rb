@@ -62,5 +62,11 @@ RSpec.describe TodoList do
       list.add("get more sleep")
       expect { list.mark_completed("take a break") }.to raise_error "That task is not on your list of todos."
     end
+
+    it "delete from list and output confirmation when completed_todo has match" do
+      list = TodoList.new
+      list.add("take a break")
+      expect { list.mark_completed("take a break") }.to output("'Take a break' has been completed and removed from your list of todos.\n").to_stdout
+    end
   end
 end
