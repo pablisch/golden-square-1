@@ -83,5 +83,17 @@ RSpec.describe TodoList do
       list.mark_completed("go for a walk")
       expect { list.view_list }.to output("* Take a break\n* Get more sleep\n").to_stdout
     end
+
+    it "return list when items added, marked as complete and then list viewed" do
+      list = TodoList.new
+      list.add("take a break")
+      list.add("get more sleep")
+      list.add("go for a walk")
+      list.add("sit in the sun")
+      list.add("talk to a friend")
+      list.mark_completed("go for a walk")
+      list.mark_completed("take a break")
+      expect { list.view_list }.to output("* Get more sleep\n* Sit in the sun\n* Talk to a friend\n").to_stdout
+    end
   end
 end
