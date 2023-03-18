@@ -21,7 +21,8 @@ class TodoList
     fail "There are no todos on your list." if @todo_list.empty?
     fail "No todo was entered as completed." if completed_todo.empty?
     fail "That task is not on your list of todos." unless @todo_list.include?(completed_todo)
-    puts "'Take a break' has been completed and removed from your list of todos."
+    puts "'#{completed_todo}' has been completed and removed from your list of todos."
+    @todo_list.delete(completed_todo)
   end
 end
 

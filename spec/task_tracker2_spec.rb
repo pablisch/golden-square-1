@@ -68,5 +68,20 @@ RSpec.describe TodoList do
       list.add("take a break")
       expect { list.mark_completed("take a break") }.to output("'Take a break' has been completed and removed from your list of todos.\n").to_stdout
     end
+
+    it "delete from list and output confirmation when completed_todo has match" do
+      list = TodoList.new
+      list.add("get more sleep")
+      expect { list.mark_completed("get more sleep") }.to output("'Get more sleep' has been completed and removed from your list of todos.\n").to_stdout
+    end
+
+    it "return list when items added, marked as complete and then list viewed" do
+      list = TodoList.new
+      list.add("take a break")
+      list.add("get more sleep")
+      list.add("go for a walk")
+      list.mark_completed("go for a walk")
+      expect { list.view_list }.to output("* Take a break\n* Get more sleep\n").to_stdout
+    end
   end
 end

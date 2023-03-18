@@ -101,7 +101,7 @@ list.add("take a break")
 list.add("get more sleep")
 list.add("go for a walk")
 list.mark_completed("go for a walk")
-list.view_list # => "* Take a break \n * Get more sleep"
+list.view_list # => "* Take a break\n* Get more sleep\n"
 
 list = TodoList.new
 list.add("take a break")
@@ -111,7 +111,7 @@ list.add("sit in the sun")
 list.add("talk to a friend")
 list.mark_completed("go for a walk")
 list.mark_completed("take a break")
-list.view_list # => "* Get more sleep \n Sit in the sun \n Talk to a friend"
+list.view_list # => "* Get more sleep\n* Sit in the sun\n* Talk to a friend\n"
 ```
 
 Encode each example as a test. You can add to the above list as you go.
