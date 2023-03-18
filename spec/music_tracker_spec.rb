@@ -23,13 +23,21 @@ RSpec.describe MusicTracker do
     expect { tracker.list }.to output("* Baby Night\n").to_stdout
   end
 
-  it "returns a single track having passed in a single track" do 
+  it "returns multiple tracks when mulitple tracks added" do 
     tracker = MusicTracker.new
     tracker.add("Tell Her")
     tracker.add("Baby Night")
     tracker.add("Mother Sky")
     tracker.add("Birth of Creation")
     expect { tracker.list }.to output("* Tell Her\n* Baby Night\n* Mother Sky\n* Birth of Creation\n").to_stdout
+  end
+
+  it "does not allow multiple tracks to be added" do 
+    tracker = MusicTracker.new
+    tracker.add("Baby Night")
+    tracker.add("Baby Night")
+    tracker.add("Baby Night")
+    expect { tracker.list }.to output("* Baby Night\n").to_stdout
   end
 
 end

@@ -5,7 +5,7 @@ class MusicTracker
 
   def add(track)
     fail "No track name given." if track.empty?
-    @track_list << track
+    @track_list << track unless @track_list.include?(track)
   end
 
   def list
