@@ -2,6 +2,12 @@ require "task_tracker2"
 
 RSpec.describe TodoList do
   context "#add" do
+    it "fails when todo item already exists" do
+      list = TodoList.new
+      list.add("take a break")
+      expect { list.add("take a break") }.to raise_error "That todo is already on your list. Nothing was added."
+    end
+
     it "return confirmation when an item is added" do
       list = TodoList.new
       expect(list.add("take a break")).to eq "'Take a break' has been added to your todo list."
@@ -28,8 +34,21 @@ RSpec.describe TodoList do
     it "return list with todo item/s" do
       list = TodoList.new
       list.add("get some sleep")
-      expect(list.view_list).to eq "* Get some sleep"
       expect { list.view_list }.to output("* Get some sleep\n").to_stdout
     end
+
+    it "return list with todo item/s" do
+      list = TodoList.new
+      list.add("get some sleep")
+      list.add("take a break")
+      expect { list.view_list }.to output("* Get some sleep\n* Take a break\n").to_stdout
+    end
   end
+
+  # context "#mark_completed" do
+  #   it "fail when trying to complete todo but list is empty" do
+  #     list = TodoList.new
+  #     expect { list.mark_completed("take a break") }.to raise_error "There are no todos on your list."
+  #   end
+  # end
 end
