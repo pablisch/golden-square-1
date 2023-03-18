@@ -16,13 +16,19 @@ RSpec.describe TodoList do
   context "#view_list" do
     it "fails when there are no items to view" do
       list = TodoList.new
-      expect { list.view_list }.to raise_error "No todo given."
+      expect { list.view_list }.to raise_error "There are no todos on your list."
     end
 
     it "return list with todo item/s" do
       list = TodoList.new
       list.add("take a break")
       expect(list.view_list).to eq "* Take a break"
+    end
+
+    it "return list with todo item/s" do
+      list = TodoList.new
+      list.add("get some sleep")
+      expect(list.view_list).to eq "* Get some sleep"
     end
   end
 end
