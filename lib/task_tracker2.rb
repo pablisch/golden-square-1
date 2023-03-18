@@ -10,7 +10,7 @@ class TodoList
 
   def view_list
     fail "There are no todos on your list." if @todo_list.empty?
-    @todo_list.map { |item| puts "* #{item}" }
+    @todo_list.each { |item| puts "* #{item}" }
   end
 end
 

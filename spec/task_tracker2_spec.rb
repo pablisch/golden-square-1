@@ -22,13 +22,14 @@ RSpec.describe TodoList do
     it "return list with todo item/s" do
       list = TodoList.new
       list.add("take a break")
-      expect(list.view_list).to eq "* Take a break"
+      expect { list.view_list }.to output("* Take a break\n").to_stdout
     end
 
     it "return list with todo item/s" do
       list = TodoList.new
       list.add("get some sleep")
       expect(list.view_list).to eq "* Get some sleep"
+      expect { list.view_list }.to output("* Get some sleep\n").to_stdout
     end
   end
 end
