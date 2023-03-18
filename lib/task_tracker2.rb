@@ -16,7 +16,7 @@ class TodoList
   end
 
   def mark_completed(completed_todo)
-    "There are no todos on your list."
+    fail "There are no todos on your list."
   end
 end
 

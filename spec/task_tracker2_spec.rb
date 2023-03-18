@@ -45,10 +45,10 @@ RSpec.describe TodoList do
     end
   end
 
-  # context "#mark_completed" do
-  #   it "fail when trying to complete todo but list is empty" do
-  #     list = TodoList.new
-  #     expect { list.mark_completed("take a break") }.to raise_error "There are no todos on your list."
-  #   end
-  # end
+  context "#mark_completed" do
+    it "fail when trying to complete todo but list is empty" do
+      list = TodoList.new
+      expect { list.mark_completed("take a break") }.to raise_error "There are no todos on your list."
+    end
+  end
 end
