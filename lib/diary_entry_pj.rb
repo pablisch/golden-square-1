@@ -4,6 +4,7 @@ class DiaryEntry
     fail "No contents." if contents.empty?
     @title = title
     @contents = contents
+    @to_read = @contents.split
   end
 
   def title
@@ -31,15 +32,8 @@ class DiaryEntry
   end
 
   def reading_chunk(wpm, minutes) 
-    "one two three four five"
-  # `wpm` is an integer representing the number
-                                  # of words the user can read per minute
-                                  # `minutes` is an integer representing the
-                                  # number of minutes the user has to read
-    # Returns a string with a chunk of the contents that the user could read
-    # in the given number of minutes.
-    # If called again, `reading_chunk` should return the next chunk, skipping
-    # what has already been read, until the contents is fully read.
-    # The next call after that it should restart from the beginning.
+    chunk = @to_read.shift(wpm * minutes)
+    @to_read = @contents.split if @to_read.empty?
+    chunk.join(" ")
   end
 end

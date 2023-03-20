@@ -56,9 +56,29 @@ require "diary_entry_pj"
     end
 
     context "#reading_chunk" do
-      it "Returns a string with a chunk of the contents that the user could read" do
+      it "Returns string chunk when called once" do
         entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten ") * 2)
         expect(entry.reading_chunk(5, 1)).to eq "one two three four five"
+      end
+
+      it "Returns string chunk when called more than once" do
+        entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten ") * 2)
+        entry.reading_chunk(4, 2)
+        expect(entry.reading_chunk(4, 2)).to eq "nine ten one two three four five six"
+      end
+
+      it "Returns string part-chunk when called more than once" do
+        entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten ") * 3)
+        entry.reading_chunk(6, 2)
+        entry.reading_chunk(6, 2)
+        expect(entry.reading_chunk(6, 2)).to eq "five six seven eight nine ten"
+      end
+
+      it "Returns string from restarted contents when all has been read" do
+        entry = DiaryEntry.new("Monday", ("one two three four five six seven eight nine ten ") * 2)
+        entry.reading_chunk(6, 2)
+        entry.reading_chunk(6, 2)
+        expect(entry.reading_chunk(6, 2)).to eq "one two three four five six seven eight nine ten one two"
       end
     end
   end
