@@ -15,27 +15,18 @@ class Diary
 
   def count_words
     @entries.map { |entry| entry.count_words }.sum
+    # returns the sum of a new array with the DiaryEntry #count_words called on each DiaryEntry object
   end
 
   def reading_time(wpm) 
     @entries.map { |entry| entry.reading_time(wpm) }.sum
+    # returns the sum of a new array with the DiaryEntry #reading_time called on each DiaryEntry object
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
-        # `wpm` is an integer representing the number of words the user can read
-        # per minute.
-        # `minutes` is an integer representing the number of minutes the user
-        # has to read.
-    # Returns an instance of diary entry representing the entry that is closest 
-    # to, but not over, the length that the user could read in the minutes they
-    # have available given their reading speed.
+    @entries.select { |entry| entry.reading_time(wpm) <= wpm * minutes }.sort_by { |entry| entry.count_words }[-1]
+    # selects only DiaryEntry objects which have a reading time <= the amount of words able to be read in the time available
+    # the new array is sorted by the DiaryEntry #count_words, low to high
+    # the last entry, the one with the highest word count, is returned
   end
 end
-
-# diary = Diary.new
-# entry_1 = DiaryEntry.new("Monday", "one two three four five")
-# diary.add(entry_1)
-# entry_2 = DiaryEntry.new("Tuesday", "un deux trois quatre cinq six")
-# diary.add(entry_2)
-# # p diary.all
-# p diary.count_words
