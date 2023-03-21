@@ -1,8 +1,28 @@
 {{PROBLEM}} Multi-Class Planned Design Recipe
 
 1. Describe the Problem
-Put or write the user story here. Add any clarifying notes you might have.
+```ruby
+As a user
+So that I can record my experiences 
+I want to keep a regular diary # keep/store diary entries
 
+As a user
+So that I can reflect on my experiences
+I want to read my past diary entries # read diary entries
+
+As a user
+So that I can reflect on my experiences in my busy day
+I want to select diary entries to read based on how much time I have and my reading speed
+# select entries by wpm * minutes
+
+As a user
+So that I can keep track of my tasks
+I want to keep a todo list along with my diary # todo list with diary
+
+As a user
+So that I can keep track of my contacts
+I want to see a list of all of the mobile phone numbers in all my diary entries # list of mob no.s from diary
+```
 2. Design the Class System
 Consider diagramming out the classes and their relationships. Take care to focus on the details you see as important, not everything. The diagram below uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com
 
@@ -26,31 +46,58 @@ Consider diagramming out the classes and their relationships. Take care to focus
 └─────────────────────────┘
 Also design the interface of each class in more detail.
 ```ruby
-class MusicLibrary
+class Diary
   def initialize
-    # ...
+    # initialises an array for DairyEntry instances
   end
 
-  def add(track) # track is an instance of Track
-    # Track gets added to the library
+  def add(entry) # entry is an instance of DiaryEntry
+    # entry gets added to the entries array
     # Returns nothing
   end
 
-  def all
-    # Returns a list of track objects
+  def read_all
+    # Returns all DiaryEntry objects in user friendly format (str)
   end
   
-  def search_by_title(keyword) # keyword is a string
-    # Returns a list of tracks with titles that include the keyword
+  def find_entry_to_read(wpm, minutes) # wpm and minutes are integers
+    # Returns the longest diary entry that can be read within the given time at the given wpm
   end
 end
 
-class Track
-  def initialize(title, artist) # title and artist are both strings
+class DiaryEntry
+  def initialize(title, body) # title and body are both strings
   end
 
-  def format
-    # Returns a string of the form "TITLE by ARTIST"
+  def title
+    # Returns a string of the title
+  end
+
+  def body
+    # Returns a string of the body
+  end
+
+  def word_count
+    # Returns an integer for the number of words in the body
+  end
+
+  def reading_time(wpm)
+    # Returns an integer for the estimated reading time at the given wpm
+  end
+end
+
+class Contacts
+  def initialize
+    # initialises a contacts array to store mobile numbers
+  end
+
+  def search
+    # searches all diary entries for mobile numbers and adds them to the contacts array
+    # does not allow duplicate numbers
+  end
+
+  def view
+    # displays a user friendly list of all mobile numbers
   end
 end
 ```
