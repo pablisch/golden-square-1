@@ -1,11 +1,8 @@
 class TodoList
 
   def view(diary) # an instance of Diary
-    # @list = diary.view_todos
-    # @list = diary.entry_list.select { |entry| entry.title.downcase == "todo" && entry.done? == false }
     @list = diary.entry_list.select { |entry| entry.title.downcase == "todo" && entry.done? == false }
     @list.each { |entry| puts "* #{entry.body.capitalize}" }
-    # @list.each { |entry| puts "* #{entry.body.capitalize}" }
     no_todos
   end
 

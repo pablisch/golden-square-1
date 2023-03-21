@@ -16,11 +16,6 @@ class Diary
     @entries.select { |entry| entry.title.downcase != "todo" }.each { |entry| puts entry.title; puts entry.body; puts }
   end
 
-  # def view_todos
-  #   # @entries
-  #   @entries.select { |entry| entry.title.downcase == "todo" && entry.done? == false }
-  # end
-
   def find_entry_to_read(wpm, minutes)
     no_posts
     possible_entries = @entries.select { |entry| (entry.count_words / wpm.to_f) <= minutes }
