@@ -7,15 +7,19 @@ class Diary
     @entries << entry
   end
 
+  def entry_list
+    @entries
+  end
+
   def read_diary
     no_posts
     @entries.select { |entry| entry.title.downcase != "todo" }.each { |entry| puts entry.title; puts entry.body; puts }
   end
 
-  def view_todos
-    # @entries
-    @entries.select { |entry| entry.title.downcase == "todo" && entry.done? == false }
-  end
+  # def view_todos
+  #   # @entries
+  #   @entries.select { |entry| entry.title.downcase == "todo" && entry.done? == false }
+  # end
 
   def find_entry_to_read(wpm, minutes)
     no_posts
