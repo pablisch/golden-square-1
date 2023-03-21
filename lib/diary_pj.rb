@@ -16,11 +16,13 @@ class Diary
   def count_words
     @entries.map { |entry| entry.count_words }.sum
     # returns the sum of a new array with the DiaryEntry #count_words called on each DiaryEntry object
+    # @entries.sum(&:count_words)
   end
 
   def reading_time(wpm) 
     @entries.map { |entry| entry.reading_time(wpm) }.sum
     # returns the sum of a new array with the DiaryEntry #reading_time called on each DiaryEntry object
+    # @entries.sum(&:reading_time(wpm))
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
