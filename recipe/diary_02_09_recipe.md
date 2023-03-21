@@ -100,6 +100,21 @@ class Contacts
     # displays a user friendly list of all mobile numbers
   end
 end
+
+class TodoList
+  def initialize
+    # initiliases todo_list array for todo items
+  end
+
+  def search
+    # searches all diary entries for a #TODO tag
+    # adds found tagged entries to the todo_list array
+  end
+
+  def view
+    # displays a user friendly list of todos
+  end
+end
 ```
 3. Create Examples as Integration Tests
 Create examples of the classes being used together in different situations and combinations that reflect the ways in which the system will be used.
@@ -107,12 +122,6 @@ Create examples of the classes being used together in different situations and c
 # EXAMPLE
 ```ruby
 # Gets all tracks
-library = MusicLibrary.new
-track_1 = Track.new("Carte Blanche", "Veracocha")
-track_2 = Track.new("Synaesthesia", "The Thrillseekers")
-library.add(track_1)
-library.add(track_2)
-library.all # => [track_1, track_2]
 ```
 4. Create Examples as Unit Tests
 Create examples, where appropriate, of the behaviour of each relevant class at a more granular level of detail.
@@ -122,7 +131,8 @@ Create examples, where appropriate, of the behaviour of each relevant class at a
 # Constructs a track
 track = Track.new("Carte Blanche", "Veracocha")
 track.title # => "Carte Blanche"
-Encode each example as a test. You can add to the above list as you go.
 ```
+Encode each example as a test. You can add to the above list as you go.
+
 5. Implement the Behaviour
 After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour.
