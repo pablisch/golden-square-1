@@ -4,8 +4,7 @@ class Track
     @artist = artist
   end
 
-  def matches?(keyword) # keyword is a string
-    # Returns true if the keyword matches either the title or artist
-    [@artist, @title].
+  def matches?(keyword) 
+    "#{@title} #{@artist}".downcase.include?(keyword.downcase)
   end
 end
