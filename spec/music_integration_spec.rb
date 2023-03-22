@@ -21,7 +21,7 @@ RSpec.describe "music integration test" do
       expect(library.all).to eq [track_1, track_2]
     end
   end
-  context "Returning tracks for keyword search"
+  context "Returning tracks for keyword search" do
     it "Returns two tracks in a list that meet search criteria" do
       library = MusicLibrary.new
       track_1 = Track.new("Ted Williams", "Tell Her")
@@ -32,4 +32,12 @@ RSpec.describe "music integration test" do
       library.add(track_3)
       expect(library.search("The")).to eq [track_2, track_3]
     end
+
+    it "Returns two tracks in a list that meet search criteria" do
+      library = MusicLibrary.new
+      track_3 = Track.new("Beatleth", "Ene Come Sun")
+      library.add(track_3)
+      expect(library.search("The")).to eq []
+    end
+  end
 end

@@ -1,7 +1,6 @@
 class MusicLibrary
   def initialize
     @library = []
-    # ...
   end
 
   def add(track) 
