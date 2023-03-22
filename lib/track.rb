@@ -6,5 +6,6 @@ class Track
 
   def matches?(keyword) # keyword is a string
     # Returns true if the keyword matches either the title or artist
+    [@artist, @title].
   end
 end
