@@ -18,8 +18,8 @@ RSpec.describe MusicLibrary do
 
     it "Returns two tracks in a list" do
       library = MusicLibrary.new
-      track_1 = instance_double("Ted Williams", "Tell Her")
-      track_2 = instance_double("Sons of Kemet", "The Comet")
+      track_1 = double(:fake_track) # one way
+      track_2 = instance_double("") # another way
       library.add(track_1)
       library.add(track_2)
       expect(library.all).to eq [track_1, track_2]
