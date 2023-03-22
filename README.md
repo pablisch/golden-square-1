@@ -1,9 +1,16 @@
-# Golden Square 1
+# Golden Square project files
 
-Main repo for Makers main course Wk 1 & 2 Golden Square project.
+This repository is all the project files for The Makers' main course week 1 and 2 curriculum, [Golden Square](https://github.com/makersacademy/golden-square).
 
-Many repos made over the course of this project and are now being consolidated into this repo.
+Phase 1: Testing Bites
+Phase 2: Skill Challenges
+Phase 3: Mocking Bites
 
-20.03.2023 golden-square-1 < greet
-20.03.2023 golden-square-1 < golden-square-exQ
-20.03.2023 golden-square-1 < golden-square-exTom16.03.23
+Many repos made over the course of this project have been consolidated into this one repo.
+
+20.03.2023 golden-square-ONE < greet
+20.03.2023 golden-square-ONE < exQ
+20.03.2023 golden-square-ONE < golden-square-exTom16.03.23
+20.03.2023 golden-square-ONE < golden-skills-1
+22.03.2023 golden-square-ONE < golden-skills-2
+22.03.2023 golden-square-ONE < golden-skills-3
