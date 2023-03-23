@@ -1,13 +1,21 @@
 class Diary
-  def add(entry) # entry is an instance of DiaryEntry
+  def initialize
+    @diary = []
+  end
+
+  def add(entry) 
+    @diary << entry
   end
 
   def entries
-    # Returns a list of DiaryEntries
+    fail "There are no diary entries to show." if @diary.empty?
+    @diary
   end
 
   def count_words
-    # Returns the number of words in all entries
+    count = 0
+    @diary.each { |entry| count += entry.count_words }
+    count
   end
 end
 

@@ -1,16 +1,18 @@
 class DiaryEntry
-  def initialize(title, contents) # title, contents are both strings
+  def initialize(title, body) 
+    @title = title
+    @body = body
   end
 
   def title
-    # Returns title as a string
+    @title
   end
 
-  def contents
-    # Returns contents as a string
+  def body
+    @body
   end
 
   def count_words
-    # Returns the number of words in the contents
+    @body.split.size
   end
 end
