@@ -1,5 +1,5 @@
 require "diary"
 
-Rspec.describe Diary do
+RSpec.describe Diary do
   
 end
