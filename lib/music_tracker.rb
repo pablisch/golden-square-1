@@ -14,9 +14,9 @@ class MusicTracker
   end
 end
 
-tracker = MusicTracker.new
-tracker.add("Tell Her")
-tracker.add("Baby Night")
-tracker.add("Mother Sky")
-tracker.add("Birth of Creation")
-tracker.list
+# tracker = MusicTracker.new
+# tracker.add("Tell Her")
+# tracker.add("Baby Night")
+# tracker.add("Mother Sky")
+# tracker.add("Birth of Creation")
+# tracker.list
