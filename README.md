@@ -2,7 +2,15 @@
 
 This repository is all the project files for The Makers' main course week 1 and 2 curriculum, [Golden Square](https://github.com/makersacademy/golden-square).
 
+The principles of the Golden Square module are:
+* Test-driven development (TDD)
+* Object-oriented programming (OOP)
+* Pair programming
+* Debugging
+
 They are made up of small preogressive exercises and are kept here for posterity for time being as they are of little functional use.
+
+The value of this module was very much in the process and learning and definitely not the resulting code. The code is not intended to be used as a reference for best practice.
 
 # The Golden Square Challenges
 
